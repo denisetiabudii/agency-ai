@@ -5,14 +5,19 @@ import { motion } from 'motion/react'
 const Footer = ({ theme }) => {
     return (
         <motion.div
-            initial={{opacity: 0, y: 30}}
+            initial={{opacity: 0, y: 50}}
             whileInView={{opacity: 1, y: 0}}
-            transition={{duration: 0.6, delay: 0.3}}
+            transition={{duration: 0.8}}
             viewport={{once: true}}
             className='bg-slate-50 dark:bg-gray-950 px-4 sm:px-12 lg:px-24 xl:px-40 pt-20 pb-6 transition-colors'
         >
             <div className='flex justify-between lg:items-center max-lg:flex-col gap-10 pb-12'>
-                <div className='space-y-5 text-gray-700 dark:text-gray-400 max-w-lg'>
+                <motion.div 
+                initial={{opacity: 0, y: -30}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.6, delay: 0.2}}
+                viewport={{once: true}}
+                className='space-y-5 text-gray-700 dark:text-gray-400 max-w-lg'>
                     <img src={theme === 'dark' ? assets.logo_dark : assets.logo} className='w-32 sm:w-44' alt="Logo" />
                     <p className='max-w-md text-sm sm:text-base leading-relaxed'>From strategy to execution, we craft digital solutions that move your business forward.</p>
                     <ul className='flex flex-wrap gap-6 sm:gap-8 text-sm font-medium'>
@@ -21,9 +26,14 @@ const Footer = ({ theme }) => {
                         <li><a href='#our-work' className='hover:text-primary transition-colors'>Our Work</a></li>
                         <li><a href='#contact-us' className='hover:text-primary transition-colors'>Contact Us</a></li>
                     </ul>
-                </div>
+                </motion.div>
                 
-                <div className='text-gray-600 dark:text-gray-400'>
+                <motion.div 
+                initial={{opacity: 0, y: 30}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.6, delay: 0.3}}
+                viewport={{once: true}}
+                className='text-gray-600 dark:text-gray-400'>
                     <h3 className='font-semibold text-gray-800 dark:text-white'>Subscribe to our newsletter</h3>
                     <p className='text-sm mt-2 mb-4'>The latest news, articles, and resources, sent to your inbox weekly.</p>
                     <form onSubmit={(e) => e.preventDefault()} className='flex gap-2 text-sm max-w-md'>
@@ -37,10 +47,15 @@ const Footer = ({ theme }) => {
                             Subscribe
                         </button>
                     </form>
-                </div>
+                </motion.div>
             </div>
             <hr className='border-gray-300 dark:border-gray-800 my-6' />
-            <div className='pb-6 text-sm text-gray-500 dark:text-gray-400 flex justify-between sm:items-center gap-4 max-sm:flex-col'>
+            <motion.div 
+            initial={{opacity: 0}}
+            whileInView={{opacity: 1}}
+            transition={{duration: 0.5, delay: 0.4}}
+            viewport={{once: true}}
+            className='pb-6 text-sm text-gray-500 dark:text-gray-400 flex justify-between sm:items-center gap-4 max-sm:flex-col'>
                 <p>&copy; 2026 agency.ai - All rights reserved.</p>
                 <div className='flex items-center gap-4'>
                     <a href="#" className='opacity-70 hover:opacity-100 transition-opacity'><img src={assets.facebook_icon} alt="Facebook" className='w-5 h-5' /></a>
@@ -48,7 +63,7 @@ const Footer = ({ theme }) => {
                     <a href="#" className='opacity-70 hover:opacity-100 transition-opacity'><img src={assets.instagram_icon} alt="Instagram" className='w-5 h-5' /></a>
                     <a href="#" className='opacity-70 hover:opacity-100 transition-opacity'><img src={assets.linkedin_icon} alt="LinkedIn" className='w-5 h-5' /></a>
                 </div>
-            </div>
+            </motion.div>
         </motion.div>
     )
 }
